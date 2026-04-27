@@ -22,13 +22,17 @@ body {
     background-attachment: fixed;
     color: var(--text-main);
     min-height: 100vh;
-    padding-bottom: 120px;
-    /* Space for the fixed player */
+    /* Increased to account for the player + iPhone home bar */
+    padding-bottom: calc(140px + env(safe-area-inset-bottom)); 
 }
 
 /* --- Layout & Typography --- */
 .app-wrapper {
+    /* Base padding + safe area for the notch/dynamic island */
     padding: 20px;
+    padding-top: calc(20px + env(safe-area-inset-top)); 
+    padding-left: calc(20px + env(safe-area-inset-left));
+    padding-right: calc(20px + env(safe-area-inset-right));
 }
 
 .container {
@@ -151,10 +155,13 @@ body {
     backdrop-filter: blur(24px);
     -webkit-backdrop-filter: blur(24px);
     border-top: 1px solid var(--glass-border);
+    
+    /* Adjusted padding to avoid the iOS bottom swipe bar */
     padding: 16px 24px;
+    padding-bottom: calc(16px + env(safe-area-inset-bottom));
+    
     box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.3);
     z-index: 100;
-    padding-bottom: 20px;
 }
 
 .player-controls {
@@ -306,19 +313,43 @@ input[type=range]::-moz-range-thumb {
     box-shadow: 0 0 10px rgba(236, 72, 153, 0.5);
 }
 
-/* Responsive adjustments */
+/* --- Mobile / Responsive --- */
 @media (max-width: 600px) {
+    /* Keep it horizontal and compact on mobile */
     .player-controls {
-        flex-direction: column;
-        gap: 16px;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 10px;
     }
-    .player .left {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
+    
+    /* Shrink the cover art slightly */
+    .player img {
+        width: 44px;
+        height: 44px;
+        margin-right: 12px;
     }
+
+    /* Prevent text overflow on small screens */
+    .player .info {
+        max-width: 120px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .player .info h3, .player .info p {
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+    
+    /* Hide the volume controls on mobile */
     .player .right {
-        display: none;
-        /* Hide volume on tiny mobile screens to save space */
+        display: none; 
+    }
+    
+    /* Shrink play button slightly to fit better */
+    .controls .play-btn {
+        width: 42px;
+        height: 42px;
     }
 }
