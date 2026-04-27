@@ -10,5 +10,18 @@
     "artist": "Lana Del Rey",
     "url": "songs/Summertime_Sadness.mp3",
     "cover": "https://pagalsongz.com/upload_file/20/32/230x230/thumb_6739878333834.webp"
+  },
+  {
+    "title": "Arcade",
+    "artist": "Duncan Laurence",
+    "url": "songs/Arcade.mp3",
+    "cover": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSKyMWJg52yNiYsY09e45TFx9U2mWBqYh7rD2-U2RFZJmEasWLuOVzrKd_a&s=10"
+  },
+  {
+    "title": "Run Down The City Monica",
+    "artist": "Reble",
+    "url": "songs/Run_Down_The_City.mp3",
+    "cover": "https://pagalnew.com/coverimages/run-down-the-city-monica-dhurandhar-500-500.jpg"
   }
+  
 ]
